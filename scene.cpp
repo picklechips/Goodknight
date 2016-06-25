@@ -12,6 +12,17 @@ using namespace std;
 Scene::Scene(string name, string mapPath) : name(name)
 {
 	tileset = NULL;
+
+	SDL_Surface *tilesettemp = IMG_Load("../Resources/tilesets/tileset.png");
+	if (tilesettemp == NULL)
+		cout << "Failed to load tilset!" << endl;
+	else
+		tileset = SDL_CreateTextureFromSurface(Game::Renderer, tilesettemp);
+
+	width = tilesettemp->w / 32;
+	height = tilesettemp->h / 32;
+	SDL_FreeSurface(tilesettemp);
+
 	string temp;
 	vector<string> tempmap;
 	ifstream mapfile(mapPath);
@@ -56,14 +67,6 @@ Uint32 get_pixel32( SDL_Surface *surface, int x, int y )
 
 void Scene::Load()
 {
-	SDL_Surface *tilesettemp = IMG_Load("../Resources/tilesets/tileset.png");
-	if (tilesettemp == NULL)
-		cout << "fuck" << endl;
-	SDL_Texture *tileset = SDL_CreateTextureFromSurface(Game::Renderer, tilesettemp);
-	int width = tilesettemp->w / 32;
-	int height = tilesettemp->h / 32;
-	SDL_FreeSurface(tilesettemp);
-
 	SDL_Rect dstrect;
 	SDL_Rect srcrect;
 	srcrect.w = 32;
