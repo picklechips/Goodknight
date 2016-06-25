@@ -16,6 +16,8 @@ public:
 
 private:
 	string name;
+	int width;
+	int height;
 	vector<vector<int>> mapbg;
 	SDL_Texture *tileset; 
 	//SDL_Surface *fgLayer;
