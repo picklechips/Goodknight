@@ -1,2 +1,8 @@
-# Goodknight
-A 2D medieval fantasy RPG written in C++ and SDL2 in VERY early stages of development. 
+# Schoolyard
+
+A 2d Games framework built with C++ and SDL2.
+
+Current Features:
+  - Load in map from CSV file
+  - Render map to the scene
+  - Player movement and interaction
